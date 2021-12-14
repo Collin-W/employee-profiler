@@ -1,21 +1,22 @@
-let employee = 
+// creates a specific team member's html and the data accociated
+let employee = function(emp) {
 
-`
+  return `
 <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title"> ${ emp.name } </h5>
-  <p class="card-text"> ${ getRole() } </p>
+  <p class="card-text"> ${ emp.getRole() } </p>
 </div>
 <ul class="list-group list-group-flush">
   <li class="list-group-item">${ emp.id }</li>
   <li class="list-group-item">${ emp.email }</li>
 </ul>
 </div>
-`
+`}
 
-let engineer = 
+let engineer = function(eng) { 
 
-`
+  return `
 <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title"> ${ eng.name } </h5>
@@ -31,11 +32,11 @@ let engineer =
   <a href="#" class="card-link">Card link</a>
 </div>
 </div>
-`
+`}
 
-let intern = 
+let intern = function(int) {
 
-`
+  return `
 <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title"> ${ int.name } </h5>
@@ -47,11 +48,11 @@ let intern =
   <li class="list-group-item"> ${ int.school } </li>
 </ul>
 </div>
-`
+`}
 
-let manager = 
+let manager = function(mana) {
 
-`
+  return `
 <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title"> ${ mana.name } </h5>
@@ -63,10 +64,10 @@ let manager =
   <li class="list-group-item"> ${ mana.officeNum } </li>
 </ul>
 </div>
-`
+`}
 
 let homePage = function(teamCards) {
-  return`
+  return `
   <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,4 +89,8 @@ let homePage = function(teamCards) {
 `
 }
 
+
+
+
+module.exports = homePage;
 
