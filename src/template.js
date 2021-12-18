@@ -1,72 +1,62 @@
 // creates a specific team member's html and the data accociated
-let employee = function(emp) {
 
-  return `
-<div class="card" style="width: 18rem;">
-<div class="card-body">
-  <h5 class="card-title"> ${ emp.name } </h5>
-  <p class="card-text"> ${ emp.getRole() } </p>
-</div>
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">${ emp.id }</li>
-  <li class="list-group-item">${ emp.email }</li>
-</ul>
-</div>
-`}
 
-let engineer = function(eng) { 
+let engineer = function (eng) {
 
   return `
 <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title"> ${ eng.name } </h5>
-  <p class="card-text"> ${ eng.getRole() } </p>
+  <p class="card-text"> ${ eng.getRole() }ineer </p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">${ eng.id }</li>
-  <li class="list-group-item">${ eng.email }</li>
-  <li class="list-group-item"> ${ eng.username } </li>
+  <li class="list-group-item">Id: ${ eng.id }</li>
+  <li class="list-group-item"> <a href="mailto:">Email: ${ eng.email }</a></li>
+  <li class="list-group-item" target="_blank">GitHub: ${ eng.username } </li>
 </ul>
 
 <div class="card-body">
   <a href="#" class="card-link">Card link</a>
 </div>
 </div>
-`}
+`
+}
 
-let intern = function(int) {
+let intern = function (int) {
 
   return `
 <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title"> ${ int.name } </h5>
-  <p class="card-text"> ${ int.getRole() } </p>
+  <p class="card-text"> ${ int.getRole() }ern </p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">${ int.id }</li>
-  <li class="list-group-item">${ int.email }</li>
-  <li class="list-group-item"> ${ int.school } </li>
+  <li class="list-group-item">Id: ${ int.id }</li>
+  <li class="list-group-item"> <a href="mailto:">Email: ${ int.email }</a></li>
+  <li class="list-group-item">School: ${ int.school } </li>
 </ul>
 </div>
-`}
+`
+}
 
-let manager = function(mana) {
+let manager = function (mana) {
 
   return `
 <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title"> ${ mana.name } </h5>
-  <p class="card-text"> ${ mana.getRole() } </p>
+  <p class="card-text"> ${ mana.getRole() }ger </p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">${ mana.id }</li>
-  <li class="list-group-item">${ mana.email }</li>
-  <li class="list-group-item"> ${ mana.officeNum } </li>
+  <li class="list-group-item">Id: ${ mana.id }</li>
+  <li class="list-group-item"> <a href="mailto:">Email: ${ mana.email }</a></li>
+  <li class="list-group-item">Office Number: ${ mana.officeNum } </li>
 </ul>
 </div>
-`}
+`
+}
 
-let homePage = function(teamArray) {
+let homePage = function (teamArray) {
   return `
   <!DOCTYPE html>
 <html lang="en">
@@ -82,14 +72,20 @@ let homePage = function(teamArray) {
     <header>The Team</header>
 
     <section>
-      ${teamArray.map(member => { 
+      ${teamArray.map(member => {
+
         if (member.getRole() === "Mana") {
          return manager(member)
+
+        } else if (member.getRole() === 'Eng') {
+          return engineer(member)
+
+        }  else {
+          return intern(member)
         }
-      }
-      )  .join('')}
+      }) 
+      .join('')}
     </section>
-    
 </body>
 </html>
 `
@@ -99,4 +95,3 @@ let homePage = function(teamArray) {
 
 
 module.exports = homePage;
-

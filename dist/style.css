@@ -1,0 +1,20 @@
+body{
+    background-color: antiquewhite;
+}
+
+section{
+    display: flex;
+    justify-content: space-around;
+    
+    
+}
+.title{
+    font-size: x-large;
+    
+}
+
+.card{
+    margin: 3%;
+    background: rgb(16, 202, 202);
+    border-radius: 15px;
+}
