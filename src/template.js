@@ -66,7 +66,7 @@ let manager = function(mana) {
 </div>
 `}
 
-let homePage = function(teamCards) {
+let homePage = function(teamArray) {
   return `
   <!DOCTYPE html>
 <html lang="en">
@@ -74,6 +74,7 @@ let homePage = function(teamCards) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -81,7 +82,12 @@ let homePage = function(teamCards) {
     <header>The Team</header>
 
     <section>
-      ${teamCards}
+      ${teamArray.map(member => { 
+        if (member.getRole() === "Mana") {
+         return manager(member)
+        }
+      }
+      )  .join('')}
     </section>
     
 </body>
